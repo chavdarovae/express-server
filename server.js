@@ -9,7 +9,7 @@ const userRoutes = require('./routes/userRoutes')
 const app = express()
 
 const allowedOrigins = [
-    'https://chavdarovae.github.io/node-app-frontend/',
+    'https://chavdarovae.github.io',
     'http://localhost:4200'
 ];
 
