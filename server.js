@@ -1,5 +1,6 @@
 require('dotenv').config()
 const express = require('express')
+const cors = require('cors')
 const mongoose = require('mongoose')
 const workoutRoutes = require('./routes/workoutRoutes')
 const userRoutes = require('./routes/userRoutes')
@@ -7,7 +8,9 @@ const userRoutes = require('./routes/userRoutes')
 // express app 
 const app = express()
 
+
 // middleware
+app.use(cors())
 app.use(express.json())
 app.use((req, res, next) => {
     console.log('Logger: ' + req.path, req.method)
@@ -27,4 +30,3 @@ mongoose.connect(process.env.MONG_URI)
         })
     })
     .catch(err => console.log(err))
-
