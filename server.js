@@ -8,25 +8,31 @@ const userRoutes = require('./routes/userRoutes')
 // express app 
 const app = express()
 
-const allowedOrigins = [
-    'https://chavdarovae.github.io',
-    'http://localhost:4200'
-];
+// const allowedOrigins = [
+//     'https://chavdarovae.github.io',
+//     'http://localhost:4200'
+// ];
 
 // middleware
+// app.use(cors({
+//     origin: function (origin, callback) {
+//         // allow requests with no origin 
+//         // (like mobile apps or curl requests)
+//         if (!origin) return callback(null, true);
+//         if (allowedOrigins.indexOf(origin) === -1) {
+//             const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
+//             return callback(new Error(msg), false);
+//         }
+//         return callback(null, true);
+//     }
+// }))
+
 app.use(cors({
-    origin: function (origin, callback) {
-        // allow requests with no origin 
-        // (like mobile apps or curl requests)
-        if (!origin) return callback(null, true);
-        if (allowedOrigins.indexOf(origin) === -1) {
-            const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-            return callback(new Error(msg), false);
-        }
-        return callback(null, true);
-    }
-}))
-// app.use(cors())
+    origin: [
+        'http://localhost:4200',
+        'https://chavdarovae.github.io'
+    ]
+}));
 app.use(express.json())
 app.use((req, res, next) => {
     console.log('Logger: ' + req.path, req.method)
