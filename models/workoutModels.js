@@ -14,6 +14,9 @@ const workoutSchema = new Schema ({
     load: {
         type: Number,
         required: true
+    },
+    likes: {
+        type: Number,
     }
 
 }, { timestamps: true })
