@@ -46,8 +46,21 @@ const signupUser = async(req, res) => {
     }
 }
 
+// GET logoutUser
+const logoutUser = (req, res) => {
+    res.cookie(
+        'token',
+        '',
+        {
+            maxAge: 1
+        }
+    )
+    res.status(200).json({ message: 'You are logged out!' })
+}
+
 
 module.exports = {
     loginUser,
-    signupUser
+    signupUser,
+    logoutUser
 }
