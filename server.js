@@ -13,6 +13,7 @@ const app = express()
 app.use(cors({
     origin: [
         'http://localhost:4200',
+        'http://localhost:9300',
         'https://chavdarovae.github.io'
     ]
 }));
