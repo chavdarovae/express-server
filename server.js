@@ -4,6 +4,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const workoutRoutes = require('./routes/workoutRoutes')
 const userRoutes = require('./routes/userRoutes')
+const bookRoutes = require('./routes/bookRoutes')
 
 // express app 
 const app = express()
@@ -12,8 +13,8 @@ const app = express()
 // middleware
 app.use(cors({
     origin: [
-        'http://localhost:4200',
-        'http://localhost:9300',
+        'http://localhost:5200',
+        'http://localhost:5300',
         'https://chavdarovae.github.io'
     ]
 }));
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 
 // router
 app.use('/api/workouts', workoutRoutes)
+app.use('/api/books', bookRoutes)
 app.use('/api/users', userRoutes)
 
 // connect to the database
